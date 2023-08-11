@@ -38,14 +38,18 @@ public class HeapSorting {
         if (length == 0)
             return;
 
+        //построение кучи - перегруппировка массива    
         for (int i = length / 2 - 1; i >= 0; i--) {
             heapify(arr, length, i);
         }
 
+        // извлечение элементов из кучи - один за другим
         for (int i = length - 1; i >= 0; i--) {
+            //перестановка значений родителя и потомка
             int tmp = arr[0];
             arr[0] = arr[i];
             arr[i] = tmp;
+            // вызов метода на уменьшенной куче
             heapify(arr, i, 0);
         }
 
@@ -58,20 +62,28 @@ public class HeapSorting {
      * @param i - index of the parent element
      */
     private static void heapify(int[] array, int length, int i) {
+        // индексы потомков
         int left = 2 * i + 1;
         int right = 2 * i + 2;
+        // установка максимального на родителя
         int largest = i;
 
+        // если левый больше текущего корня
         if (left < length && array[left] > array[largest]) {
             largest = left;
         }
+
+        // если правый больше текущего корня
         if (right < length && array[right] > array[largest]) {
             largest = right;
         }
+
+        // если самый большой элемент - не корень
         if (largest != i) {
             int tmp = array[i];
             array[i] = array[largest];
             array[largest] = tmp;
+            // рекурсивно преобразуем затронутое дерево в бинарную кучу
             heapify(array, length, largest);
         }
     }
@@ -110,7 +122,7 @@ public class HeapSorting {
     }
 
     /**
-     * create pseudo-random int array
+     * creating pseudo-random integer array
      * 
      * @param size - size of the array to form
      * @param min  - min value of array
