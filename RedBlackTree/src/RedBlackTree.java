@@ -178,7 +178,7 @@ public class RedBlackTree {
         List<Node> line = new ArrayList<>();
         line.add(root);
 
-        String tree = "\n";
+        String tree = "";
 
         // until there is still some children in line
         int cnt = 0;
@@ -235,7 +235,7 @@ public class RedBlackTree {
                 break;
         }
 
-        return tree;
+        return tree + "\n";
     }
 
     int maxDepth(Node node) {
