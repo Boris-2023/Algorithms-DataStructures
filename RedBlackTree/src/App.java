@@ -12,19 +12,17 @@ public class App {
         RedBlackTree tree = new RedBlackTree();
 
         System.out.println();
-        for (int i = 0; i < 12; i++) {
-            if(tree.add(arr[i])){
+        for (int i = 0; i < 50; i++) {
+            if (tree.add(arr[i])) {
                 System.out.println(arr[i] + " added to the tree");
-            } else{
+                if (i >= 7)
+                    System.out.println(tree);
+            } else {
                 System.out.println(arr[i] + " NOT added (already in the tree)");
             }
 
-            if(i>=7) System.out.println(tree);
-
         }
 
-        
-        
     }
 
     /**
